@@ -9,22 +9,13 @@
 // paid puzzle content. (The `server-only` npm guard package is not installed
 // here, so this is enforced by import discipline; see C4 in PRELAUNCH-REVIEW.md.)
 //
-// Free cases (case-001, case-002) intentionally keep their solutions inline in
-// their case files: they are public and are solved client-side.
+// Free cases (case-001, case-002, case-003) intentionally keep their solutions
+// inline in their case files: they are public and are solved client-side.
 import type { Case } from "../types";
 
 type Solution = Case["solution"];
 
 export const paidCaseSolutions: Record<string, Solution> = {
-  "case-003": {
-    answer: "Thomas Brown",
-    successMessage:
-      "Great detective work! Thomas Brown has confessed to the crime.",
-    explanation: `The investigation started with two suspects from the crime scene, one living on Ocean Drive and the other with a name ending in "ez".
-After interviewing them, hotel check-ins were filtered using two separate clues: first by date, then further refined using surveillance records.
-Only three people matched both filters.
-An interview with each of them revealed their role in the case, and after pressing further, Thomas Brown confessed to the crime.`,
-  },
   "case-004": {
     answer: "Marco Santos",
     successMessage:

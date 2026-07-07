@@ -129,11 +129,7 @@ HAVING COUNT(*) > 3;`}
         rows={[
           ["Filters", "Individual rows", "Groups (after GROUP BY)"],
           ["Runs during", "Before grouping", "After grouping"],
-          [
-            "Aggregate functions",
-            "Cannot use (SUM, COUNT, AVG)",
-            "Can use",
-          ],
+          ["Aggregate functions", "Cannot use (SUM, COUNT, AVG)", "Can use"],
           ["Requires GROUP BY", "No", "Yes (almost always)"],
           [
             "Performance",
@@ -213,11 +209,10 @@ HAVING COUNT(*) > 3;`}
       />
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        WHERE runs at step 2, before any grouping. At this point, SQL is
-        looking at individual rows and has no concept of groups or aggregates.
-        HAVING runs at step 4, after GROUP BY has already created groups.
-        That is why HAVING can use COUNT(), SUM(), and AVG(). Those values
-        exist by then.
+        WHERE runs at step 2, before any grouping. At this point, SQL is looking
+        at individual rows and has no concept of groups or aggregates. HAVING
+        runs at step 4, after GROUP BY has already created groups. That is why
+        HAVING can use COUNT(), SUM(), and AVG(). Those values exist by then.
       </p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
@@ -385,8 +380,8 @@ GROUP BY city
 HAVING AVG(age) > 30;`}
         </pre>
         <p className="text-gray-600 text-sm mt-2">
-          Calculates the average age per city, then filters to cities where
-          that average exceeds 30.
+          Calculates the average age per city, then filters to cities where that
+          average exceeds 30.
         </p>
       </div>
 
@@ -409,7 +404,10 @@ HAVING COUNT(*) >= 2
         </p>
       </div>
 
-      <DetectiveTip variant="clue" title="Think of HAVING as Your Group Verdict">
+      <DetectiveTip
+        variant="clue"
+        title="Think of HAVING as Your Group Verdict"
+      >
         HAVING is like deciding which neighborhoods deserve a full
         investigation. You have already grouped the evidence by area. Now you
         ask: which areas have ENOUGH suspicious activity to warrant sending a
@@ -521,8 +519,8 @@ HAVING COUNT(*) >= 2;
       </h3>
 
       <p className="text-gray-700 leading-relaxed mb-4">
-        This is the most common error. WHERE runs before GROUP BY, so
-        aggregates like COUNT() do not exist yet.
+        This is the most common error. WHERE runs before GROUP BY, so aggregates
+        like COUNT() do not exist yet.
       </p>
 
       <BeforeAfter
@@ -703,11 +701,7 @@ HAVING COUNT(*) > 3;`}
           {
             question:
               "Show orders from 2024 where the customer spent over $1,000 total. Which clause(s)?",
-            options: [
-              "WHERE only",
-              "HAVING only",
-              "Both WHERE and HAVING",
-            ],
+            options: ["WHERE only", "HAVING only", "Both WHERE and HAVING"],
             correctIndex: 2,
             explanation:
               "WHERE filters to 2024 orders (individual rows). HAVING filters customers with SUM(amount) > 1000 (aggregate). You need both.",
@@ -731,7 +725,7 @@ HAVING COUNT(*) > 3;`}
         <p className="text-amber-700 mb-5 max-w-lg mx-auto">
           SQLNoir&apos;s 6 detective cases start with basic WHERE filtering and
           scale to complex queries combining JOINs, GROUP BY, and HAVING to
-          crack advanced mysteries. The first two cases are free and
+          crack advanced mysteries. Three starter cases are free and
           browser-based with no signup - a one-time Detective License unlocks
           the rest.
         </p>

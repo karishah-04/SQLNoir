@@ -13,8 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: { canonical: "/pt-br/sql-para-iniciantes" },
     openGraph: {
       type: "article",
-      title:
-        "SQL para Iniciantes - Aprenda SQL do Zero em Português | SQLNoir",
+      title: "SQL para Iniciantes - Aprenda SQL do Zero em Português | SQLNoir",
       description:
         "Guia de SQL para iniciantes em português. Aprenda SQL do zero: o que é, comandos básicos, como praticar. Comece resolvendo casos de detetive de graça.",
       url: "https://www.sqlnoir.com/pt-br/sql-para-iniciantes",
@@ -29,8 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title:
-        "SQL para Iniciantes - Aprenda SQL do Zero em Português | SQLNoir",
+      title: "SQL para Iniciantes - Aprenda SQL do Zero em Português | SQLNoir",
       description:
         "Guia de SQL para iniciantes em português. Aprenda SQL do zero: o que é, comandos básicos, como praticar. Comece resolvendo casos de detetive de graça.",
       images: ["/open-graph-image.png"],
@@ -124,12 +122,12 @@ export default async function SqlParaIniciantesPage() {
               SQL para Iniciantes: Aprenda SQL do Zero
             </h1>
             <p className="text-amber-800 text-lg md:text-xl">
-              SQL é a linguagem usada para conversar com bancos de dados:
-              com ela você busca, filtra, cruza e resume informações
-              guardadas em tabelas. É a forma padrão de fazer perguntas aos
-              dados - e aprender SQL do zero é mais simples do que parece.
-              Este guia mostra o que é SQL, os comandos básicos e como
-              praticar até ganhar fluência.
+              SQL é a linguagem usada para conversar com bancos de dados: com
+              ela você busca, filtra, cruza e resume informações guardadas em
+              tabelas. É a forma padrão de fazer perguntas aos dados - e
+              aprender SQL do zero é mais simples do que parece. Este guia
+              mostra o que é SQL, os comandos básicos e como praticar até ganhar
+              fluência.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <TrackedLink
@@ -155,17 +153,17 @@ export default async function SqlParaIniciantesPage() {
               SQL (Structured Query Language) é a linguagem padrão para
               trabalhar com bancos de dados relacionais. Um banco relacional
               guarda informações em tabelas - pense em planilhas com linhas e
-              colunas. Cada tabela representa algo (clientes, pedidos,
-              suspeitos de um crime) e o SQL é como você faz perguntas a
-              esses dados: &quot;quais clientes compraram em março?&quot;,
-              &quot;quem estava na cena do crime?&quot;.
+              colunas. Cada tabela representa algo (clientes, pedidos, suspeitos
+              de um crime) e o SQL é como você faz perguntas a esses dados:
+              &quot;quais clientes compraram em março?&quot;, &quot;quem estava
+              na cena do crime?&quot;.
             </p>
             <p className="text-amber-800 leading-relaxed">
-              O que torna o SQL especial é que você descreve o que quer, não
-              o passo a passo de como obter. Você diz &quot;me dê os nomes
-              dos suspeitos sem álibi&quot; e o banco de dados resolve o
-              resto. Por isso é uma ótima primeira linguagem: o foco está na
-              lógica do problema, não em detalhes técnicos.
+              O que torna o SQL especial é que você descreve o que quer, não o
+              passo a passo de como obter. Você diz &quot;me dê os nomes dos
+              suspeitos sem álibi&quot; e o banco de dados resolve o resto. Por
+              isso é uma ótima primeira linguagem: o foco está na lógica do
+              problema, não em detalhes técnicos.
             </p>
           </section>
 
@@ -174,18 +172,17 @@ export default async function SqlParaIniciantesPage() {
               Por que aprender SQL
             </h2>
             <p className="text-amber-800 leading-relaxed">
-              SQL é uma das habilidades mais pedidas do mercado de tecnologia
-              e aparece muito além da área de dados. Desenvolvedores,
-              analistas, profissionais de marketing, product managers e
-              cientistas de dados usam SQL todos os dias. É uma linguagem
-              estável - o que você aprende hoje continua valendo daqui a dez
-              anos - e está presente em praticamente toda empresa que guarda
-              dados.
+              SQL é uma das habilidades mais pedidas do mercado de tecnologia e
+              aparece muito além da área de dados. Desenvolvedores, analistas,
+              profissionais de marketing, product managers e cientistas de dados
+              usam SQL todos os dias. É uma linguagem estável - o que você
+              aprende hoje continua valendo daqui a dez anos - e está presente
+              em praticamente toda empresa que guarda dados.
             </p>
             <p className="text-amber-800 leading-relaxed">
-              Para quem está começando na programação, SQL também é uma
-              vitória rápida: você consegue resultados úteis nos primeiros
-              dias, o que ajuda a manter a motivação.
+              Para quem está começando na programação, SQL também é uma vitória
+              rápida: você consegue resultados úteis nos primeiros dias, o que
+              ajuda a manter a motivação.
             </p>
           </section>
 
@@ -194,8 +191,8 @@ export default async function SqlParaIniciantesPage() {
               Os comandos básicos do SQL
             </h2>
             <p className="text-amber-800 leading-relaxed">
-              Cinco comandos resolvem a maior parte das consultas do dia a
-              dia. Domine estes e você já fala SQL:
+              Cinco comandos resolvem a maior parte das consultas do dia a dia.
+              Domine estes e você já fala SQL:
             </p>
             <div className="bg-white border border-amber-200 rounded-2xl shadow-sm p-6 space-y-5">
               <div>
@@ -231,7 +228,9 @@ export default async function SqlParaIniciantesPage() {
                   Organiza os resultados em ordem crescente ou decrescente.
                 </p>
                 <pre className="mt-2 bg-amber-950 text-amber-50 rounded-lg p-3 text-sm overflow-x-auto">
-                  <code>SELECT nome, idade FROM suspeitos ORDER BY idade DESC;</code>
+                  <code>
+                    SELECT nome, idade FROM suspeitos ORDER BY idade DESC;
+                  </code>
                 </pre>
               </div>
               <div>
@@ -269,8 +268,8 @@ export default async function SqlParaIniciantesPage() {
               Como aprender SQL do zero: um roteiro
             </h2>
             <p className="text-amber-800 leading-relaxed">
-              Aprender SQL do zero funciona melhor em etapas curtas e
-              práticas. Um roteiro que funciona:
+              Aprender SQL do zero funciona melhor em etapas curtas e práticas.
+              Um roteiro que funciona:
             </p>
             <div className="bg-white border border-amber-200 rounded-2xl shadow-sm p-6 space-y-3">
               <p className="text-amber-800 leading-relaxed">
@@ -312,9 +311,9 @@ export default async function SqlParaIniciantesPage() {
               </p>
             </div>
             <p className="text-amber-800 leading-relaxed">
-              O erro mais comum de quem aprende SQL do zero é estudar só
-              teoria. Escreva consultas desde o primeiro dia - é praticando
-              que o conhecimento fixa.
+              O erro mais comum de quem aprende SQL do zero é estudar só teoria.
+              Escreva consultas desde o primeiro dia - é praticando que o
+              conhecimento fixa.
             </p>
           </section>
 
@@ -323,17 +322,17 @@ export default async function SqlParaIniciantesPage() {
               Praticar SQL com casos reais
             </h2>
             <p className="text-amber-800 leading-relaxed">
-              O SQLNoir foi feito exatamente para a etapa de prática. Em vez
-              de listas de exercícios secas, você assume o papel de detetive
-              e resolve crimes consultando bancos de dados reais. Cada caso
-              te dá um objetivo claro - descobrir o culpado - e você só
-              avança quando a sua consulta retorna a pista certa.
+              O SQLNoir foi feito exatamente para a etapa de prática. Em vez de
+              listas de exercícios secas, você assume o papel de detetive e
+              resolve crimes consultando bancos de dados reais. Cada caso te dá
+              um objetivo claro - descobrir o culpado - e você só avança quando
+              a sua consulta retorna a pista certa.
             </p>
             <p className="text-amber-800 leading-relaxed">
-              A dificuldade vai do iniciante ao avançado, então dá para
-              começar do absoluto zero. Tudo roda no navegador, e os dois
-              primeiros casos são gratuitos e não exigem cadastro. É a forma
-              mais divertida de aprender SQL na prática.
+              A dificuldade vai do iniciante ao avançado, então dá para começar
+              do absoluto zero. Tudo roda no navegador, e três casos iniciais
+              são gratuitos e não exigem cadastro. É a forma mais divertida de
+              aprender SQL na prática.
             </p>
           </section>
 

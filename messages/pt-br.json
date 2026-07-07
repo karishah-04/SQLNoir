@@ -70,7 +70,7 @@
     "faqAccountQ": "Preciso de uma conta para jogar?",
     "faqAccountA": "Você pode abrir e resolver casos sem criar uma conta. Faça login para rastrear XP, progresso e casos resolvidos entre dispositivos.",
     "faqAccessQ": "Como funciona o acesso?",
-    "faqAccessA": "Os casos para iniciantes são gratuitos, sem precisar de conta. Os casos intermediário e avançado são desbloqueados com a Licença de Detetive, uma compra única e vitalícia, não uma assinatura. O XP acompanha o seu progresso conforme você resolve casos.",
+    "faqAccessA": "Três casos iniciais são gratuitos, sem precisar de conta. Os demais casos são desbloqueados com a Licença de Detetive, uma compra única e vitalícia, não uma assinatura. O XP acompanha o seu progresso conforme você resolve casos.",
     "faqSqlQ": "O que preciso saber de SQL?",
     "faqSqlA": "Iniciantes podem começar com SELECTs simples. Casos intermediários e avançados introduzem joins, agrupamento, filtros e subconsultas conforme você progride.",
     "faqInterviewQ": "Isso ajuda em entrevistas?",
@@ -154,7 +154,7 @@
     "explanation": "Explicação",
     "saveXpNote": "Seu XP está salvo neste dispositivo. Entre quando quiser para manter o progresso entre dispositivos.",
     "unlockRemainingCases": "Desbloqueie os casos restantes",
-    "unlockRemainingDesc": "Você resolveu os dois casos gratuitos. Obtenha uma Licença de Detetive para desvendar todas as investigações intermediárias e avançadas.",
+    "unlockRemainingDesc": "Você resolveu todos os casos gratuitos. Obtenha uma Licença de Detetive para desvendar todas as investigações restantes.",
     "fullArchiveTitle": "Pronto para o arquivo completo?",
     "fullArchiveDesc": "Desbloqueie todas as investigações intermediárias e avançadas com uma Licença de Detetive.",
     "unlockAllCasesCta": "Desbloquear todos os casos",
@@ -439,10 +439,10 @@
       "overviewBody": "O SQLNoir é uma plataforma interativa de aprendizado de SQL na qual você resolve casos de detetive usando consultas SQL. Ao usar o SQLNoir, você concorda com estes termos. O SQLNoir é fornecido \"no estado em que se encontra\", sem qualquer tipo de garantia.",
       "accountsTitle": "Contas e acesso",
       "accountsIntro": "Você pode usar o SQLNoir sem criar uma conta. Entrar com o Google OAuth permite acompanhar seu progresso entre dispositivos.",
-      "accountsFreeTier": "<strong>Acesso gratuito:</strong> os dois primeiros casos são gratuitos - sem necessidade de conta ou pagamento. Os demais casos são desbloqueados com uma Licença de Detetive de pagamento único.",
-      "accountsLicense": "<strong>Licença de Detetive:</strong> os dois primeiros casos são gratuitos. Para desbloquear os demais casos é necessária uma Licença de Detetive de pagamento único - um único pagamento vitalício, não uma assinatura. A licença nunca expira e inclui futuros casos pagos sem custo adicional.",
+      "accountsFreeTier": "<strong>Acesso gratuito:</strong> três casos iniciais são gratuitos - sem necessidade de conta ou pagamento. Os demais casos são desbloqueados com uma Licença de Detetive de pagamento único.",
+      "accountsLicense": "<strong>Licença de Detetive:</strong> três casos iniciais são gratuitos. Para desbloquear os demais casos é necessária uma Licença de Detetive de pagamento único - um único pagamento vitalício, não uma assinatura. A licença nunca expira e inclui futuros casos pagos sem custo adicional.",
       "paymentsTitle": "Pagamentos",
-      "paymentsBody": "Os dois primeiros casos são gratuitos. Para desbloquear os demais casos é necessária uma Licença de Detetive de pagamento único - um único pagamento vitalício, sem cobranças recorrentes ou mensais. Os pagamentos são processados de forma segura pela <stripe>Stripe</stripe>. Se você tiver qualquer problema, entre em contato conosco e faremos o possível para ajudar.",
+      "paymentsBody": "Três casos iniciais são gratuitos. Para desbloquear os demais casos é necessária uma Licença de Detetive de pagamento único - um único pagamento vitalício, sem cobranças recorrentes ou mensais. Os pagamentos são processados de forma segura pela <stripe>Stripe</stripe>. Se você tiver qualquer problema, entre em contato conosco e faremos o possível para ajudar.",
       "refundTitle": "Reembolsos",
       "refundBody": "Oferecemos reembolso de 14 dias, sem perguntas, e ajudamos qualquer cliente insatisfeito mesmo após esse prazo. Para solicitar um reembolso, escreva para <email>support@sqlnoir.com</email>.",
       "ugcTitle": "Conteúdo gerado pelo usuário",
@@ -512,7 +512,7 @@
       },
       "q5": {
         "question": "Quais casos são gratuitos?",
-        "answer": "Os dois primeiros casos são gratuitos para jogar. Os demais exigem uma Licença de Detetive."
+        "answer": "Três casos iniciais são gratuitos para jogar. Os demais exigem uma Licença de Detetive."
       },
       "q6": {
         "question": "Posso jogar offline?",

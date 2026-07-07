@@ -1,6 +1,6 @@
 /**
  * PPP-based price tiers for Detective License.
- * Formula: $14.99 x (country_GDP_PPP / US_GDP_PPP), floor $1.99, ceiling $14.99.
+ * Formula: $14.99 x (country_GDP_PPP / US_GDP_PPP), floor $3.99, ceiling $14.99.
  * 124 countries across 13 tiers.
  *
  * Pricing is DYNAMIC: amounts are passed to Stripe via `price_data.unit_amount`,
@@ -52,9 +52,9 @@ export interface PriceTier {
 }
 
 const TIERS: Record<number, { amount: number; display: string }> = {
-  1: { amount: 199, display: "$1.99" },
-  2: { amount: 249, display: "$2.49" },
-  3: { amount: 299, display: "$2.99" },
+  1: { amount: 399, display: "$3.99" },
+  2: { amount: 399, display: "$3.99" },
+  3: { amount: 399, display: "$3.99" },
   4: { amount: 399, display: "$3.99" },
   5: { amount: 449, display: "$4.49" },
   6: { amount: 499, display: "$4.99" },
@@ -69,63 +69,182 @@ const TIERS: Record<number, { amount: number; display: string }> = {
 
 // Country code -> tier number
 const COUNTRY_TIERS: Record<string, number> = {
-  // Tier 1 - $1.99
-  IN: 1, PK: 1, BD: 1, ET: 1, NP: 1, MM: 1, TJ: 1, KG: 1,
-  MG: 1, MW: 1, MZ: 1, BF: 1, ML: 1, NE: 1, TD: 1, CF: 1,
-  CD: 1, BI: 1, SL: 1, LR: 1, AF: 1, HT: 1, YE: 1, SO: 1,
+  // Tier 1 - $3.99 floor
+  IN: 1,
+  PK: 1,
+  BD: 1,
+  ET: 1,
+  NP: 1,
+  MM: 1,
+  TJ: 1,
+  KG: 1,
+  MG: 1,
+  MW: 1,
+  MZ: 1,
+  BF: 1,
+  ML: 1,
+  NE: 1,
+  TD: 1,
+  CF: 1,
+  CD: 1,
+  BI: 1,
+  SL: 1,
+  LR: 1,
+  AF: 1,
+  HT: 1,
+  YE: 1,
+  SO: 1,
 
-  // Tier 2 - $2.49
-  NG: 2, KE: 2, GH: 2, TZ: 2, UG: 2, KH: 2, SN: 2, CI: 2,
-  CM: 2, ZW: 2, ZM: 2, RW: 2, LA: 2, BJ: 2, TG: 2, GM: 2,
+  // Tier 2 - $3.99 floor
+  NG: 2,
+  KE: 2,
+  GH: 2,
+  TZ: 2,
+  UG: 2,
+  KH: 2,
+  SN: 2,
+  CI: 2,
+  CM: 2,
+  ZW: 2,
+  ZM: 2,
+  RW: 2,
+  LA: 2,
+  BJ: 2,
+  TG: 2,
+  GM: 2,
 
-  // Tier 3 - $2.99
-  PH: 3, VN: 3, EG: 3, UZ: 3, MA: 3, DZ: 3, TN: 3, JO: 3,
-  LK: 3, BO: 3, PY: 3, HN: 3, NI: 3, GT: 3, SV: 3,
+  // Tier 3 - $3.99 floor
+  PH: 3,
+  VN: 3,
+  EG: 3,
+  UZ: 3,
+  MA: 3,
+  DZ: 3,
+  TN: 3,
+  JO: 3,
+  LK: 3,
+  BO: 3,
+  PY: 3,
+  HN: 3,
+  NI: 3,
+  GT: 3,
+  SV: 3,
 
   // Tier 4 - $3.99
-  BR: 4, CO: 4, PE: 4, UA: 4, ID: 4, ZA: 4, DO: 4, GE: 4,
-  AM: 4, AZ: 4, MD: 4, AL: 4, BA: 4, MK: 4, XK: 4, JM: 4,
+  BR: 4,
+  CO: 4,
+  PE: 4,
+  UA: 4,
+  ID: 4,
+  ZA: 4,
+  DO: 4,
+  GE: 4,
+  AM: 4,
+  AZ: 4,
+  MD: 4,
+  AL: 4,
+  BA: 4,
+  MK: 4,
+  XK: 4,
+  JM: 4,
 
   // Tier 5 - $4.49
-  CN: 5, MX: 5, TH: 5, RS: 5, BG: 5, EC: 5, KZ: 5, BY: 5,
-  PA: 5, TT: 5, MU: 5, BW: 5, NA: 5, MN: 5,
+  CN: 5,
+  MX: 5,
+  TH: 5,
+  RS: 5,
+  BG: 5,
+  EC: 5,
+  KZ: 5,
+  BY: 5,
+  PA: 5,
+  TT: 5,
+  MU: 5,
+  BW: 5,
+  NA: 5,
+  MN: 5,
 
   // Tier 6 - $4.99
-  AR: 6, MY: 6, CR: 6, ME: 6, TR: 6, UY: 6, CL: 6,
+  AR: 6,
+  MY: 6,
+  CR: 6,
+  ME: 6,
+  TR: 6,
+  UY: 6,
+  CL: 6,
 
   // Tier 7 - $5.99
-  HU: 7, HR: 7, RO: 7, PL: 7, LV: 7, LT: 7, SK: 7,
+  HU: 7,
+  HR: 7,
+  RO: 7,
+  PL: 7,
+  LV: 7,
+  LT: 7,
+  SK: 7,
 
   // Tier 8 - $6.99
-  CZ: 8, EE: 8, PT: 8, GR: 8, CY: 8, MT: 8,
+  CZ: 8,
+  EE: 8,
+  PT: 8,
+  GR: 8,
+  CY: 8,
+  MT: 8,
 
   // Tier 9 - $7.99
-  SI: 9, KR: 9, ES: 9, IT: 9, JP: 9, NZ: 9, TW: 9, HK: 9,
+  SI: 9,
+  KR: 9,
+  ES: 9,
+  IT: 9,
+  JP: 9,
+  NZ: 9,
+  TW: 9,
+  HK: 9,
 
   // Tier 10 - $8.99
-  FR: 10, GB: 10, IL: 10, FI: 10, BE: 10,
+  FR: 10,
+  GB: 10,
+  IL: 10,
+  FI: 10,
+  BE: 10,
 
   // Tier 11 - $9.99
-  DE: 11, CA: 11, AT: 11, SE: 11,
+  DE: 11,
+  CA: 11,
+  AT: 11,
+  SE: 11,
 
   // Tier 12 - $11.99
-  AU: 12, NL: 12, DK: 12, IS: 12,
+  AU: 12,
+  NL: 12,
+  DK: 12,
+  IS: 12,
 
   // Tier 13 - $14.99 (default)
-  US: 13, NO: 13, CH: 13, LU: 13, IE: 13, SG: 13, QA: 13,
-  AE: 13, KW: 13, BH: 13, BN: 13, MO: 13, SA: 13,
+  US: 13,
+  NO: 13,
+  CH: 13,
+  LU: 13,
+  IE: 13,
+  SG: 13,
+  QA: 13,
+  AE: 13,
+  KW: 13,
+  BH: 13,
+  BN: 13,
+  MO: 13,
+  SA: 13,
 };
 
 const DEFAULT_TIER = 13;
 
 // EUR price table, parallel to the USD TIERS above. Same tier numbers, clean
-// euro prices (floor ~1.99, ceiling ~13.99, monotonic increasing). EUR uses 2
+// euro prices (floor 3.99, ceiling ~13.99, monotonic increasing). EUR uses 2
 // decimals in Stripe, so amounts are in cents (e.g. 3.99 EUR -> 399).
 const EUR_TIERS: Record<number, { amount: number; display: string }> = {
-  1: { amount: 199, display: "€1.99" },
-  2: { amount: 249, display: "€2.49" },
-  3: { amount: 299, display: "€2.99" },
-  4: { amount: 349, display: "€3.49" },
+  1: { amount: 399, display: "€3.99" },
+  2: { amount: 399, display: "€3.99" },
+  3: { amount: 399, display: "€3.99" },
+  4: { amount: 399, display: "€3.99" },
   5: { amount: 399, display: "€3.99" },
   6: { amount: 449, display: "€4.49" },
   7: { amount: 499, display: "€4.99" },
@@ -140,8 +259,26 @@ const EUR_TIERS: Record<number, { amount: number; display: string }> = {
 // ISO-2 country codes that use the euro as their currency. Bulgaria (BG) joins
 // the Eurozone in 2026.
 const EUROZONE = new Set<string>([
-  "AT", "BE", "HR", "CY", "EE", "FI", "FR", "DE", "GR", "IE",
-  "IT", "LV", "LT", "LU", "MT", "NL", "PT", "SK", "SI", "ES",
+  "AT",
+  "BE",
+  "HR",
+  "CY",
+  "EE",
+  "FI",
+  "FR",
+  "DE",
+  "GR",
+  "IE",
+  "IT",
+  "LV",
+  "LT",
+  "LU",
+  "MT",
+  "NL",
+  "PT",
+  "SK",
+  "SI",
+  "ES",
   "BG",
 ]);
 
@@ -232,8 +369,22 @@ const CURRENCY_RATES: Record<SupportedCurrency, number> = {
  * Ref: https://stripe.com/docs/currencies#zero-decimal
  */
 const STRIPE_ZERO_DECIMAL = new Set<string>([
-  "BIF", "CLP", "DJF", "GNF", "JPY", "KMF", "KRW", "MGA", "PYG",
-  "RWF", "UGX", "VND", "VUV", "XAF", "XOF", "XPF",
+  "BIF",
+  "CLP",
+  "DJF",
+  "GNF",
+  "JPY",
+  "KMF",
+  "KRW",
+  "MGA",
+  "PYG",
+  "RWF",
+  "UGX",
+  "VND",
+  "VUV",
+  "XAF",
+  "XOF",
+  "XPF",
 ]);
 
 function isZeroDecimal(currency: SupportedCurrency): boolean {
@@ -286,7 +437,10 @@ const CURRENCY_LOCALE: Partial<Record<SupportedCurrency, string>> = {
  * ending. Zero-decimal currencies always take the integer path so we never
  * emit fractional whole units.
  */
-export function roundNicePrice(value: number, currency: SupportedCurrency): number {
+export function roundNicePrice(
+  value: number,
+  currency: SupportedCurrency,
+): number {
   if (isZeroDecimal(currency) || value >= 50) {
     // Whole-number path: round to a magnitude-based step, then drop 1 unit so
     // the price ends in 9s (e.g. 1300 -> 1299, 170 -> 169).
@@ -343,7 +497,7 @@ function formatLocalPrice(value: number, currency: SupportedCurrency): string {
 function localizeFromUsdCents(
   usdCents: number,
   currency: SupportedCurrency,
-  tier: number
+  tier: number,
 ): LocalizedPrice {
   const usd = usdCents / 100;
   const rate = CURRENCY_RATES[currency];
@@ -443,7 +597,7 @@ export interface PriceForLocaleOptions {
 export function getPriceForLocale(
   locale: string,
   countryCode?: string,
-  options?: PriceForLocaleOptions
+  options?: PriceForLocaleOptions,
 ): LocalizedPrice {
   const tier = getPriceTier(countryCode || "US");
   const code = (countryCode || "US").toUpperCase();

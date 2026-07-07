@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CaseFile } from "./CaseFile";
 import { Lock } from "lucide-react";
 import { cases, categories } from "../cases";
-import { isCategoryLocked } from "@/lib/license";
+import { isCaseLocked } from "@/lib/license";
 import { getLocalProgress } from "@/lib/local-progress";
 import type { Case } from "@/types";
 import { useTranslations } from "next-intl";
@@ -51,15 +51,17 @@ export function Dashboard({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 space-y-2">
           <h1 className="font-detective text-3xl text-amber-900 leading-none">
-            {t('cases.caseFiles')}
+            {t("cases.caseFiles")}
           </h1>
           {showUnsyncedBadge && (
             <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 border border-amber-200 px-3 py-1 text-xs text-amber-800">
               <span className="leading-none tabular-nums">
-                {anonProgress.xp} {t('common.xp')}
+                {anonProgress.xp} {t("common.xp")}
               </span>
-              <span aria-hidden="true" className="leading-none">·</span>
-              <span className="leading-none">{t('cases.unsyncedNote')}</span>
+              <span aria-hidden="true" className="leading-none">
+                ·
+              </span>
+              <span className="leading-none">{t("cases.unsyncedNote")}</span>
             </div>
           )}
         </div>
@@ -67,11 +69,15 @@ export function Dashboard({
         <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {categories.map((category) => {
-              const isLocked = isCategoryLocked(category.id, hasLicense);
-              const categoryClass = isLocked ? "opacity-75" : "";
+              const categoryCases =
+                (localizedCases || cases)[category.id as keyof typeof cases] ||
+                [];
+              const hasLockedCases = categoryCases.some((caseData) =>
+                isCaseLocked(caseData, hasLicense),
+              );
 
               return (
-                <div key={category.id} className={`space-y-4 ${categoryClass}`}>
+                <div key={category.id} className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
                       <category.icon className="w-5 h-5 text-amber-700" />
@@ -79,23 +85,26 @@ export function Dashboard({
                         {t(`cases.${category.id}` as any)}
                       </h3>
                     </div>
-                    {isLocked && (
+                    {hasLockedCases && (
                       <div className="flex items-center text-amber-600 text-sm">
                         <Lock className="w-4 h-4 mr-1" />
                         <span className="font-detective text-xs">
-                          {t('license.licenseRequired')}
+                          {t("license.licenseRequired")}
                         </span>
                       </div>
                     )}
                   </div>
 
                   <div className="space-y-4">
-                    {((localizedCases || cases)[category.id as keyof typeof cases] || []).map(
-                      (caseData) => (
+                    {categoryCases.map((caseData) => {
+                      const isLocked = isCaseLocked(caseData, hasLicense);
+                      return (
                         <div
                           key={caseData.id}
                           className={`relative rounded-lg transition-transform duration-200 ${
-                            isLocked ? "group/locked hover:-translate-y-0.5" : ""
+                            isLocked
+                              ? "group/locked hover:-translate-y-0.5"
+                              : ""
                           }`}
                         >
                           <CaseFile
@@ -115,14 +124,14 @@ export function Dashboard({
                               <div className="flex -rotate-6 items-center rounded-full bg-white/95 px-4 py-2 shadow-lg transition-all duration-200 group-hover/locked:rotate-0 group-hover/locked:scale-105 group-hover/locked:bg-amber-50">
                                 <Lock className="w-4 h-4 mr-2 text-amber-700" />
                                 <span className="font-detective text-amber-900">
-                                  {t('license.unlockCase')}
+                                  {t("license.unlockCase")}
                                 </span>
                               </div>
                             </div>
                           )}
                         </div>
-                      )
-                    )}
+                      );
+                    })}
                   </div>
                 </div>
               );

@@ -34,12 +34,12 @@ describe("getCurrencyForLocale", () => {
 });
 
 describe("getPriceTier", () => {
-  it("maps India to the $1.99 floor tier (199 cents, usd)", () => {
+  it("maps India to the $3.99 floor tier (399 cents, usd)", () => {
     const tier = getPriceTier("IN");
     expect(tier.tier).toBe(1);
-    expect(tier.amount).toBe(199);
+    expect(tier.amount).toBe(399);
     expect(tier.currency).toBe("usd");
-    expect(tier.display).toBe("$1.99");
+    expect(tier.display).toBe("$3.99");
   });
 
   it("maps the US to the $14.99 top tier (1499 cents, usd)", () => {
@@ -102,11 +102,11 @@ describe("getPriceForLocale", () => {
     expect(price.display).toBe("$14.99");
   });
 
-  it("returns USD PPP tier for en + IN (cheaper floor tier, 199 cents)", () => {
+  it("returns USD PPP tier for en + IN (cheaper floor tier, 399 cents)", () => {
     const price = getPriceForLocale("en", "IN");
     expect(price.currency).toBe("usd");
-    expect(price.amount).toBe(199);
-    expect(price.display).toBe("$1.99");
+    expect(price.amount).toBe(399);
+    expect(price.display).toBe("$3.99");
   });
 
   it("defaults to US tier when country is missing", () => {
@@ -128,7 +128,10 @@ describe("getPriceForLocale", () => {
   });
 
   it("never exposes a Stripe priceId (dynamic pricing)", () => {
-    const price = getPriceForLocale("en", "US") as unknown as Record<string, unknown>;
+    const price = getPriceForLocale("en", "US") as unknown as Record<
+      string,
+      unknown
+    >;
     expect(price.priceId).toBeUndefined();
   });
 });
@@ -190,12 +193,48 @@ describe("local-currency presentment (opt-in localizeByCountry)", () => {
   // x100), and the exact native-formatted display (digits compared for the
   // NBSP-bearing locales).
   const CASES = [
-    { country: "IN", currency: "inr", amount: 16900, zeroDecimal: false, display: "₹169" },
-    { country: "GB", currency: "gbp", amount: 799, zeroDecimal: false, display: "£7.99" },
-    { country: "PL", currency: "pln", amount: 2399, zeroDecimal: false, display: "23,99 zł" },
-    { country: "BR", currency: "brl", amount: 2099, zeroDecimal: false, displayDigits: "2099" },
-    { country: "JP", currency: "jpy", amount: 1299, zeroDecimal: true, displayDigits: "1299" },
-    { country: "VN", currency: "vnd", amount: 74999, zeroDecimal: true, displayDigits: "74999" },
+    {
+      country: "IN",
+      currency: "inr",
+      amount: 33900,
+      zeroDecimal: false,
+      display: "₹339",
+    },
+    {
+      country: "GB",
+      currency: "gbp",
+      amount: 799,
+      zeroDecimal: false,
+      display: "£7.99",
+    },
+    {
+      country: "PL",
+      currency: "pln",
+      amount: 2399,
+      zeroDecimal: false,
+      display: "23,99 zł",
+    },
+    {
+      country: "BR",
+      currency: "brl",
+      amount: 2099,
+      zeroDecimal: false,
+      displayDigits: "2099",
+    },
+    {
+      country: "JP",
+      currency: "jpy",
+      amount: 1299,
+      zeroDecimal: true,
+      displayDigits: "1299",
+    },
+    {
+      country: "VN",
+      currency: "vnd",
+      amount: 99999,
+      zeroDecimal: true,
+      displayDigits: "99999",
+    },
   ] as const;
 
   for (const c of CASES) {
@@ -215,9 +254,9 @@ describe("local-currency presentment (opt-in localizeByCountry)", () => {
   it("zero-decimal currencies use WHOLE units, never x100 (the 100x bug guard)", () => {
     const jp = getPriceForLocale("en", "JP", { localizeByCountry: true });
     const vn = getPriceForLocale("en", "VN", { localizeByCountry: true });
-    // If these were wrongly x100'd, amounts would be 129900 / 7499900.
+    // If these were wrongly x100'd, amounts would be 129900 / 9999900.
     expect(jp.amount).toBe(1299);
-    expect(vn.amount).toBe(74999);
+    expect(vn.amount).toBe(99999);
     expect(jp.amount).toBeLessThan(2000);
     expect(vn.amount).toBeLessThan(100000);
   });
@@ -240,7 +279,7 @@ describe("local-currency presentment (opt-in localizeByCountry)", () => {
     // existing callers (and the old tests) are unaffected.
     const inUsd = getPriceForLocale("en", "IN");
     expect(inUsd.currency).toBe("usd");
-    expect(inUsd.amount).toBe(199);
+    expect(inUsd.amount).toBe(399);
     const jpUsd = getPriceForLocale("en", "JP");
     expect(jpUsd.currency).toBe("usd");
     expect(jpUsd.amount).toBe(799);

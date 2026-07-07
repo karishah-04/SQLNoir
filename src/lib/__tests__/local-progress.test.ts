@@ -39,14 +39,18 @@ afterEach(() => {
 });
 
 describe("FREE_CASE_XP", () => {
-  it("is derived from the real beginner cases (case-001=50, case-002=100)", () => {
-    expect(FREE_CASE_XP).toEqual({ "case-001": 50, "case-002": 100 });
+  it("is derived from the real always-free cases (case-001, case-002, case-003)", () => {
+    expect(FREE_CASE_XP).toEqual({
+      "case-001": 50,
+      "case-002": 100,
+      "case-003": 200,
+    });
   });
 });
 
 describe("recordLocalSolve", () => {
   it("ignores non-free / unknown case ids", () => {
-    recordLocalSolve("case-003"); // paid
+    recordLocalSolve("case-004"); // paid
     recordLocalSolve("bogus-id"); // unknown
     expect(getLocalProgress()).toEqual({ solvedCaseIds: [], xp: 0 });
   });
@@ -68,11 +72,12 @@ describe("recordLocalSolve", () => {
   it("accumulates multiple distinct free cases", () => {
     recordLocalSolve("case-001");
     recordLocalSolve("case-002");
+    recordLocalSolve("case-003");
     const progress = getLocalProgress();
     expect(new Set(progress.solvedCaseIds)).toEqual(
-      new Set(["case-001", "case-002"])
+      new Set(["case-001", "case-002", "case-003"]),
     );
-    expect(progress.xp).toBe(150);
+    expect(progress.xp).toBe(350);
   });
 });
 
@@ -82,11 +87,13 @@ describe("getLocalProgress", () => {
     // smuggle in. getLocalProgress must filter to free cases and recompute xp.
     storage.setItem(
       STORAGE_KEY,
-      JSON.stringify(["case-001", "case-003", "not-a-case"])
+      JSON.stringify(["case-001", "case-003", "not-a-case"]),
     );
     const progress = getLocalProgress();
-    expect(progress.solvedCaseIds).toEqual(["case-001"]);
-    expect(progress.xp).toBe(50); // recomputed, not inflated by the junk ids
+    expect(new Set(progress.solvedCaseIds)).toEqual(
+      new Set(["case-001", "case-003"]),
+    );
+    expect(progress.xp).toBe(250); // recomputed, not inflated by the junk ids
   });
 
   it("returns empty progress on corrupt JSON", () => {

@@ -45,7 +45,11 @@ export default function PrimaryKeyVsForeignKey() {
 
       {/* Intro */}
       <p className="text-gray-700 leading-relaxed mb-6">
-        If you&apos;ve ever stared at a database and wondered why some columns are marked as keys while others aren&apos;t, you&apos;re not alone. Primary keys and foreign keys are the backbone of relational databases, but most explanations make them sound more complicated than they need to be. Let&apos;s fix that.
+        If you&apos;ve ever stared at a database and wondered why some columns
+        are marked as keys while others aren&apos;t, you&apos;re not alone.
+        Primary keys and foreign keys are the backbone of relational databases,
+        but most explanations make them sound more complicated than they need to
+        be. Let&apos;s fix that.
       </p>
 
       {/* Reddit sentiment callout */}
@@ -57,7 +61,8 @@ export default function PrimaryKeyVsForeignKey() {
           </span>
         </div>
         <blockquote className="text-gray-700 text-sm leading-relaxed italic">
-          &ldquo;PLEASE explain foreign keys to me like I am six years old&rdquo;
+          &ldquo;PLEASE explain foreign keys to me like I am six years
+          old&rdquo;
         </blockquote>
       </div>
 
@@ -75,13 +80,16 @@ export default function PrimaryKeyVsForeignKey() {
 
       <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
         <li>
-          <strong>Primary key:</strong> Unique identifier for each row in a table (like a suspect ID in a criminal database)
+          <strong>Primary key:</strong> Unique identifier for each row in a
+          table (like a suspect ID in a criminal database)
         </li>
         <li>
-          <strong>Foreign key:</strong> A reference to a primary key in another table (like case_id in an evidence table linking back to cases)
+          <strong>Foreign key:</strong> A reference to a primary key in another
+          table (like case_id in an evidence table linking back to cases)
         </li>
         <li>
-          <strong>Key difference:</strong> Primary keys ensure uniqueness; foreign keys ensure relationships
+          <strong>Key difference:</strong> Primary keys ensure uniqueness;
+          foreign keys ensure relationships
         </li>
       </ul>
 
@@ -106,7 +114,10 @@ export default function PrimaryKeyVsForeignKey() {
       </h2>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        A primary key is a column (or combination of columns) that uniquely identifies each row in a table. Think of it like a suspect ID in a criminal database: no two suspects share the same ID, and every suspect must have one.
+        A primary key is a column (or combination of columns) that uniquely
+        identifies each row in a table. Think of it like a suspect ID in a
+        criminal database: no two suspects share the same ID, and every suspect
+        must have one.
       </p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
@@ -114,10 +125,19 @@ export default function PrimaryKeyVsForeignKey() {
       </p>
 
       <ol className="list-decimal pl-6 mb-6 space-y-2 text-gray-700">
-        <li><strong>Unique:</strong> No duplicates allowed</li>
-        <li><strong>Not null:</strong> Every row must have a value</li>
-        <li><strong>Immutable:</strong> Should rarely change (changing IDs causes chaos)</li>
-        <li><strong>Indexed:</strong> Automatically indexed for fast lookups</li>
+        <li>
+          <strong>Unique:</strong> No duplicates allowed
+        </li>
+        <li>
+          <strong>Not null:</strong> Every row must have a value
+        </li>
+        <li>
+          <strong>Immutable:</strong> Should rarely change (changing IDs causes
+          chaos)
+        </li>
+        <li>
+          <strong>Indexed:</strong> Automatically indexed for fast lookups
+        </li>
       </ol>
 
       <SQLQueryBreakdown
@@ -142,11 +162,14 @@ export default function PrimaryKeyVsForeignKey() {
       />
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        You can also define a <strong>composite primary key</strong> using multiple columns. This is common in junction tables:
+        You can also define a <strong>composite primary key</strong> using
+        multiple columns. This is common in junction tables:
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
-        <h4 className="font-bold text-gray-900 mb-3">Composite Primary Key Example:</h4>
+        <h4 className="font-bold text-gray-900 mb-3">
+          Composite Primary Key Example:
+        </h4>
         <pre className="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto">
           {`CREATE TABLE case_suspects (
   case_id INT,
@@ -169,7 +192,10 @@ export default function PrimaryKeyVsForeignKey() {
       </h2>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        A foreign key is a column that references the primary key of another table. It creates a relationship between tables and enforces <em>referential integrity</em> (meaning you can&apos;t link to something that doesn&apos;t exist).
+        A foreign key is a column that references the primary key of another
+        table. It creates a relationship between tables and enforces{" "}
+        <em>referential integrity</em> (meaning you can&apos;t link to something
+        that doesn&apos;t exist).
       </p>
 
       {/* Reddit analogy */}
@@ -181,12 +207,16 @@ export default function PrimaryKeyVsForeignKey() {
           </span>
         </div>
         <blockquote className="text-gray-700 text-sm leading-relaxed italic">
-          &ldquo;Think of it like social security numbers. Your SSN is your primary key. When a bank stores your account, they use your SSN as a foreign key to link back to you.&rdquo;
+          &ldquo;Think of it like social security numbers. Your SSN is your
+          primary key. When a bank stores your account, they use your SSN as a
+          foreign key to link back to you.&rdquo;
         </blockquote>
       </div>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        In a detective database, evidence belongs to a specific case. The <code>case_id</code> in the evidence table is a foreign key that references the <code>case_id</code> primary key in the cases table:
+        In a detective database, evidence belongs to a specific case. The{" "}
+        <code>case_id</code> in the evidence table is a foreign key that
+        references the <code>case_id</code> primary key in the cases table:
       </p>
 
       <SQLQueryBreakdown
@@ -211,7 +241,9 @@ export default function PrimaryKeyVsForeignKey() {
       />
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Unlike primary keys, foreign keys can have duplicates (many pieces of evidence can belong to the same case) and can be NULL (evidence might not be assigned to a case yet).
+        Unlike primary keys, foreign keys can have duplicates (many pieces of
+        evidence can belong to the same case) and can be NULL (evidence might
+        not be assigned to a case yet).
       </p>
 
       {/* Tier 1 CTA */}
@@ -223,7 +255,8 @@ export default function PrimaryKeyVsForeignKey() {
         >
           SQLNoir&apos;s detective cases
         </Link>{" "}
-        challenge you to query across multiple related tables to crack mysteries.
+        challenge you to query across multiple related tables to crack
+        mysteries.
       </p>
 
       {/* How Keys Work Together */}
@@ -235,7 +268,9 @@ export default function PrimaryKeyVsForeignKey() {
       </h2>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Keys create relationships between tables. In a detective database, you might have suspects, cases, evidence, and interviews. Here&apos;s how they connect:
+        Keys create relationships between tables. In a detective database, you
+        might have suspects, cases, evidence, and interviews. Here&apos;s how
+        they connect:
       </p>
 
       <EntityRelationship
@@ -262,15 +297,38 @@ export default function PrimaryKeyVsForeignKey() {
           },
         ]}
         relations={[
-          { from: "cases", to: "evidence", fromColumn: "case_id", toColumn: "case_id", type: "1:N", label: "One case has many pieces of evidence" },
-          { from: "cases", to: "interviews", fromColumn: "case_id", toColumn: "case_id", type: "1:N", label: "One case has many interviews" },
-          { from: "suspects", to: "interviews", fromColumn: "suspect_id", toColumn: "suspect_id", type: "1:N", label: "One suspect can have many interviews" },
+          {
+            from: "cases",
+            to: "evidence",
+            fromColumn: "case_id",
+            toColumn: "case_id",
+            type: "1:N",
+            label: "One case has many pieces of evidence",
+          },
+          {
+            from: "cases",
+            to: "interviews",
+            fromColumn: "case_id",
+            toColumn: "case_id",
+            type: "1:N",
+            label: "One case has many interviews",
+          },
+          {
+            from: "suspects",
+            to: "interviews",
+            fromColumn: "suspect_id",
+            toColumn: "suspect_id",
+            type: "1:N",
+            label: "One suspect can have many interviews",
+          },
         ]}
         caption="Detective database schema showing primary and foreign key relationships"
       />
 
       <DetectiveTip variant="clue" title="The Key Insight">
-        Primary keys are the &ldquo;anchor&rdquo; that other tables reference. Foreign keys are the &ldquo;links&rdquo; that create the chain. Without this relationship, you&apos;d need to duplicate data everywhere.
+        Primary keys are the &ldquo;anchor&rdquo; that other tables reference.
+        Foreign keys are the &ldquo;links&rdquo; that create the chain. Without
+        this relationship, you&apos;d need to duplicate data everywhere.
       </DetectiveTip>
 
       <p className="text-gray-700 leading-relaxed mb-6">
@@ -278,7 +336,9 @@ export default function PrimaryKeyVsForeignKey() {
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
-        <h4 className="font-bold text-gray-900 mb-3">Complete Detective Database:</h4>
+        <h4 className="font-bold text-gray-900 mb-3">
+          Complete Detective Database:
+        </h4>
         <pre className="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto">
           {`-- Suspects table (primary key: suspect_id)
 CREATE TABLE suspects (
@@ -326,29 +386,43 @@ CREATE TABLE interviews (
       </h2>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Here&apos;s where it gets interesting. What happens when you delete a case that has linked evidence? The foreign key constraint controls this behavior:
+        Here&apos;s where it gets interesting. What happens when you delete a
+        case that has linked evidence? The foreign key constraint controls this
+        behavior:
       </p>
 
       <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
         <li>
-          <strong>CASCADE:</strong> Delete the parent, and all child rows are automatically deleted too
+          <strong>CASCADE:</strong> Delete the parent, and all child rows are
+          automatically deleted too
         </li>
         <li>
-          <strong>RESTRICT:</strong> Prevent deletion if child rows exist (default in most databases)
+          <strong>RESTRICT:</strong> Prevent deletion if child rows exist
+          (default in most databases)
         </li>
         <li>
-          <strong>SET NULL:</strong> Set the foreign key to NULL when the parent is deleted
+          <strong>SET NULL:</strong> Set the foreign key to NULL when the parent
+          is deleted
         </li>
         <li>
-          <strong>NO ACTION:</strong> Similar to RESTRICT, but checked at end of transaction
+          <strong>NO ACTION:</strong> Similar to RESTRICT, but checked at end of
+          transaction
         </li>
       </ul>
 
       <FlowDiagram
         nodes={[
-          { label: "DELETE FROM cases WHERE case_id = 1", icon: "🗑️", type: "start" },
+          {
+            label: "DELETE FROM cases WHERE case_id = 1",
+            icon: "🗑️",
+            type: "start",
+          },
           { label: "Check for linked evidence", icon: "🔍", type: "process" },
-          { label: "CASCADE: Delete evidence too", icon: "💥", type: "process" },
+          {
+            label: "CASCADE: Delete evidence too",
+            icon: "💥",
+            type: "process",
+          },
           { label: "RESTRICT: Block the delete", icon: "🚫", type: "process" },
           { label: "SET NULL: Orphan the evidence", icon: "❓", type: "end" },
         ]}
@@ -377,7 +451,9 @@ DELETE FROM cases WHERE case_id = 1;
       </div>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
-        <h4 className="font-bold text-gray-900 mb-3">ON DELETE RESTRICT (safer):</h4>
+        <h4 className="font-bold text-gray-900 mb-3">
+          ON DELETE RESTRICT (safer):
+        </h4>
         <pre className="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto">
           {`CREATE TABLE evidence (
   evidence_id INT PRIMARY KEY,
@@ -412,7 +488,9 @@ DELETE FROM cases WHERE case_id = 1;
       />
 
       <DetectiveTip variant="warning" title="Danger Zone">
-        CASCADE is powerful but dangerous. One wrong DELETE can wipe out years of related data. Use RESTRICT in production unless you have a specific reason for CASCADE.
+        CASCADE is powerful but dangerous. One wrong DELETE can wipe out years
+        of related data. Use RESTRICT in production unless you have a specific
+        reason for CASCADE.
       </DetectiveTip>
 
       {/* Full Comparison */}
@@ -430,16 +508,40 @@ DELETE FROM cases WHERE case_id = 1;
       <ComparisonTable
         headers={["Aspect", "Primary Key", "Foreign Key"]}
         rows={[
-          ["Purpose", "Uniquely identifies rows", "Creates relationships between tables"],
-          ["Uniqueness", "Must be unique (no duplicates)", "Duplicates allowed"],
+          [
+            "Purpose",
+            "Uniquely identifies rows",
+            "Creates relationships between tables",
+          ],
+          [
+            "Uniqueness",
+            "Must be unique (no duplicates)",
+            "Duplicates allowed",
+          ],
           ["NULL values", "Never allowed", "Allowed (unless constrained)"],
           ["Count per table", "Exactly one", "Zero or more"],
           ["Automatically indexed", "Yes (always)", "No (must add manually)"],
           ["References another table", "No", "Yes (references a primary key)"],
-          ["Can be composite", "Yes (multiple columns)", "Yes (multiple columns)"],
-          ["Modification", "Difficult to change", "Can be updated if new value exists"],
-          ["Delete behavior", "Cannot delete if referenced", "Configurable (CASCADE, RESTRICT, etc.)"],
-          ["Performance impact", "Speeds up lookups", "Slows writes (integrity checks)"],
+          [
+            "Can be composite",
+            "Yes (multiple columns)",
+            "Yes (multiple columns)",
+          ],
+          [
+            "Modification",
+            "Difficult to change",
+            "Can be updated if new value exists",
+          ],
+          [
+            "Delete behavior",
+            "Cannot delete if referenced",
+            "Configurable (CASCADE, RESTRICT, etc.)",
+          ],
+          [
+            "Performance impact",
+            "Speeds up lookups",
+            "Slows writes (integrity checks)",
+          ],
         ]}
         caption="10-point comparison of primary and foreign keys"
       />
@@ -466,7 +568,8 @@ DELETE FROM cases WHERE case_id = 1;
       </h3>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Just because a column is named <code>customer_id</code> doesn&apos;t make it a foreign key. You need to explicitly define the constraint:
+        Just because a column is named <code>customer_id</code> doesn&apos;t
+        make it a foreign key. You need to explicitly define the constraint:
       </p>
 
       <BeforeAfter
@@ -504,7 +607,9 @@ DELETE FROM cases WHERE case_id = 1;
       </h3>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Using email addresses, phone numbers, or social security numbers as primary keys seems convenient but causes problems when that data changes:
+        Using email addresses, phone numbers, or social security numbers as
+        primary keys seems convenient but causes problems when that data
+        changes:
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -538,7 +643,8 @@ DELETE FROM cases WHERE case_id = 1;
       </h3>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Primary keys are automatically indexed, but foreign keys are not. This means JOINs on foreign keys can be slow on large tables:
+        Primary keys are automatically indexed, but foreign keys are not. This
+        means JOINs on foreign keys can be slow on large tables:
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -554,7 +660,9 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
       </div>
 
       <DetectiveTip variant="tip" title="Pro Tip">
-        Most database tools show you which columns are indexed. Check your foreign keys. If they&apos;re not indexed and you JOIN on them frequently, add indexes.
+        Most database tools show you which columns are indexed. Check your
+        foreign keys. If they&apos;re not indexed and you JOIN on them
+        frequently, add indexes.
       </DetectiveTip>
 
       {/* Quiz */}
@@ -577,7 +685,12 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
           },
           {
             question: "How many foreign keys can a single table have?",
-            options: ["Only one", "Zero or more", "Exactly two", "One per column"],
+            options: [
+              "Only one",
+              "Zero or more",
+              "Exactly two",
+              "One per column",
+            ],
             correctIndex: 1,
             explanation:
               "A table can have zero, one, or many foreign keys. Each foreign key creates a relationship to another table.",
@@ -611,7 +724,10 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
       />
 
       {/* FAQ */}
-      <h2 id="faq" className="text-3xl font-detective text-amber-900 mt-12 mb-6">
+      <h2
+        id="faq"
+        className="text-3xl font-detective text-amber-900 mt-12 mb-6"
+      >
         FAQ
       </h2>
 
@@ -621,7 +737,11 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
             Can a foreign key also be a primary key?
           </h3>
           <p className="text-gray-700">
-            Yes! In junction tables for many-to-many relationships, the composite primary key often consists of two foreign keys. Example: a <code>case_suspects</code> table with <code>(case_id, suspect_id)</code> as the composite primary key, where both columns are also foreign keys.
+            Yes! In junction tables for many-to-many relationships, the
+            composite primary key often consists of two foreign keys. Example: a{" "}
+            <code>case_suspects</code> table with{" "}
+            <code>(case_id, suspect_id)</code> as the composite primary key,
+            where both columns are also foreign keys.
           </p>
         </div>
 
@@ -630,7 +750,10 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
             Can a table have multiple primary keys?
           </h3>
           <p className="text-gray-700">
-            No. A table can have only ONE primary key. However, that primary key can be a COMPOSITE key made of multiple columns. You might hear &ldquo;multiple primary keys&rdquo; but this is incorrect terminology.
+            No. A table can have only ONE primary key. However, that primary key
+            can be a COMPOSITE key made of multiple columns. You might hear
+            &ldquo;multiple primary keys&rdquo; but this is incorrect
+            terminology.
           </p>
         </div>
 
@@ -639,7 +762,9 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
             What is a composite key?
           </h3>
           <p className="text-gray-700">
-            A composite key is a primary key made of two or more columns. All columns together must be unique. Common in junction tables: <code>PRIMARY KEY (order_id, product_id)</code>.
+            A composite key is a primary key made of two or more columns. All
+            columns together must be unique. Common in junction tables:{" "}
+            <code>PRIMARY KEY (order_id, product_id)</code>.
           </p>
         </div>
 
@@ -648,7 +773,10 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
             Do foreign keys hurt database performance?
           </h3>
           <p className="text-gray-700">
-            Foreign keys add overhead on INSERT, UPDATE, and DELETE because the database must check referential integrity. However, this overhead is usually small and the data integrity benefits outweigh the cost. Index your foreign key columns to minimize the impact.
+            Foreign keys add overhead on INSERT, UPDATE, and DELETE because the
+            database must check referential integrity. However, this overhead is
+            usually small and the data integrity benefits outweigh the cost.
+            Index your foreign key columns to minimize the impact.
           </p>
         </div>
 
@@ -657,7 +785,10 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
             Is a foreign key required?
           </h3>
           <p className="text-gray-700">
-            No. Foreign keys are optional but strongly recommended. Without them, the database allows orphaned records (evidence linked to non-existent cases). You CAN skip them, but your data quality will suffer.
+            No. Foreign keys are optional but strongly recommended. Without
+            them, the database allows orphaned records (evidence linked to
+            non-existent cases). You CAN skip them, but your data quality will
+            suffer.
           </p>
         </div>
       </div>
@@ -671,12 +802,16 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
           </span>
         </div>
         <blockquote className="text-gray-700 text-sm leading-relaxed italic">
-          &ldquo;I keep seeing these terms but nobody explains WHY you&apos;d use them, just WHAT they are&rdquo;
+          &ldquo;I keep seeing these terms but nobody explains WHY you&apos;d
+          use them, just WHAT they are&rdquo;
         </blockquote>
       </div>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        The WHY is simple: primary keys let you find specific rows instantly, and foreign keys let you connect related data without duplicating it. Without keys, you&apos;d either have massive duplication or no way to link your data together.
+        The WHY is simple: primary keys let you find specific rows instantly,
+        and foreign keys let you connect related data without duplicating it.
+        Without keys, you&apos;d either have massive duplication or no way to
+        link your data together.
       </p>
 
       {/* Tier 3 CTA */}
@@ -685,7 +820,8 @@ CREATE INDEX idx_interviews_suspect_id ON interviews(suspect_id);`}
           Ready to practice with primary and foreign keys?
         </p>
         <p className="text-amber-700 mb-5 max-w-lg mx-auto">
-          SQLNoir&apos;s detective cases let you query across related tables to solve mysteries. No signup required for beginner cases.
+          SQLNoir&apos;s detective cases let you query across related tables to
+          solve mysteries. No signup required for three starter cases.
         </p>
         <Link
           href="/cases"

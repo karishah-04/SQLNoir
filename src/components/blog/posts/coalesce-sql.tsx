@@ -1,10 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ComparisonTable,
-  FlowDiagram,
-} from "@/components/blog/diagrams";
+import { ComparisonTable, FlowDiagram } from "@/components/blog/diagrams";
 import {
   SQLQueryBreakdown,
   BeforeAfter,
@@ -153,9 +150,7 @@ FROM case_files;`}
       <div className="not-prose my-8 rounded-xl border border-amber-200/60 bg-amber-50/40 p-5">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">💬</span>
-          <span className="text-sm font-medium text-amber-800">
-            on r/SQL
-          </span>
+          <span className="text-sm font-medium text-amber-800">on r/SQL</span>
         </div>
         <blockquote className="text-gray-700 text-sm leading-relaxed italic">
           &ldquo;I know exactly what coalesce does and I have used it once.
@@ -303,9 +298,7 @@ FROM persons_of_interest;`}
       <div className="not-prose my-8 rounded-xl border border-amber-200/60 bg-amber-50/40 p-5">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-lg">💬</span>
-          <span className="text-sm font-medium text-amber-800">
-            on r/SQL
-          </span>
+          <span className="text-sm font-medium text-amber-800">on r/SQL</span>
         </div>
         <blockquote className="text-gray-700 text-sm leading-relaxed italic">
           &ldquo;What are some really good examples of using coalesce? I&apos;d
@@ -449,7 +442,13 @@ ORDER BY COALESCE(priority, 999);`}
             "First arg type",
             "First arg type",
           ],
-          ["Short-circuit", "✅ Yes", "N/A (2 args)", "N/A (2 args)", "N/A (2 args)"],
+          [
+            "Short-circuit",
+            "✅ Yes",
+            "N/A (2 args)",
+            "N/A (2 args)",
+            "N/A (2 args)",
+          ],
           ["Portability", "Excellent", "Poor", "Poor", "Poor"],
         ]}
         caption="NULL handling functions across databases"
@@ -617,8 +616,7 @@ LEFT JOIN employees m ON e.manager_id = m.id;`}
               "COALESCE accepts 2 or more arguments. ISNULL, IFNULL, and NVL are limited to exactly 2.",
           },
           {
-            question:
-              "What happens with COALESCE(integer_col, 'N/A')?",
+            question: "What happens with COALESCE(integer_col, 'N/A')?",
             options: [
               "Returns 'N/A' for NULLs",
               "Returns 0 for NULLs",
@@ -630,8 +628,7 @@ LEFT JOIN employees m ON e.manager_id = m.id;`}
               "COALESCE requires compatible types. An integer column and a string literal will cause a type mismatch error.",
           },
           {
-            question:
-              "COALESCE(a, b) is equivalent to which CASE expression?",
+            question: "COALESCE(a, b) is equivalent to which CASE expression?",
             options: [
               "CASE WHEN a = b THEN a ELSE b END",
               "CASE WHEN a IS NOT NULL THEN a ELSE b END",
@@ -651,11 +648,11 @@ LEFT JOIN employees m ON e.manager_id = m.id;`}
           Ready to put NULL handling into practice?
         </p>
         <p className="text-amber-700 mb-5 max-w-lg mx-auto">
-          COALESCE shows up constantly in real SQL work, from cleaning reports to
-          fixing JOIN results. SQLNoir gives you detective mysteries where NULL
-          handling, JOINs, and data gaps are part of every investigation - the
-          first two cases are free, with a one-time Detective License to unlock
-          the rest.
+          COALESCE shows up constantly in real SQL work, from cleaning reports
+          to fixing JOIN results. SQLNoir gives you detective mysteries where
+          NULL handling, JOINs, and data gaps are part of every investigation -
+          three starter cases are free, with a one-time Detective License to
+          unlock the rest.
         </p>
         <Link
           href="/cases"

@@ -109,8 +109,7 @@ AND i.alibi IS NOT NULL;`}
         </h4>
         <ul className="space-y-2 text-gray-700 mb-4">
           <li>
-            • <strong>6 casos de detetive:</strong> de roubo a
-            assassinato
+            • <strong>6 casos de detetive:</strong> de roubo a assassinato
           </li>
           <li>
             • <strong>Fica difícil de verdade:</strong> começa fácil com SELECT
@@ -125,8 +124,8 @@ AND i.alibi IS NOT NULL;`}
             professor corrigir seu trabalho
           </li>
           <li>
-            • <strong>Gratuito para começar:</strong> os dois primeiros casos
-            são grátis, sem cadastro, e uma Licença de Detetive única libera os
+            • <strong>Gratuito para começar:</strong> três casos iniciais são
+            grátis, sem cadastro, e uma Licença de Detetive única libera os
             demais
           </li>
           <li>
@@ -480,9 +479,7 @@ WHERE dl.plate_number LIKE '%H42W%';`}
 
         <div className="grid md:grid-cols-2 gap-4 mt-4">
           <div>
-            <h5 className="font-bold text-green-800 mb-2">
-              ✅ Pontos fortes:
-            </h5>
+            <h5 className="font-bold text-green-800 mb-2">✅ Pontos fortes:</h5>
             <ul className="text-sm text-gray-700 space-y-1">
               <li>• Casos de qualidade e escrita muito boas</li>
               <li>• Cobre conceitos básicos de SQL</li>
@@ -590,7 +587,8 @@ AND population < (
             estatísticas mundiais, prêmios Nobel e muito mais
           </li>
           <li>
-            • <strong>Dificuldade progressiva:</strong> do SELECT básico às&nbsp;
+            • <strong>Dificuldade progressiva:</strong> do SELECT básico
+            às&nbsp;
             <a
               href="https://sqlzoo.net/wiki/Window_functions"
               target="_blank"
@@ -899,9 +897,7 @@ AND population < (
               <td className="border border-gray-300 p-3">
                 Mistério de detetive
               </td>
-              <td className="border border-gray-300 p-3">
-                Narrativa imersiva
-              </td>
+              <td className="border border-gray-300 p-3">Narrativa imersiva</td>
             </tr>
             <tr className="bg-gray-50">
               <td className="border border-gray-300 p-3 font-semibold">
@@ -943,9 +939,7 @@ AND population < (
               <td className="border border-gray-300 p-3">
                 Intermediário a avançado
               </td>
-              <td className="border border-gray-300 p-3">
-                Detetive policial
-              </td>
+              <td className="border border-gray-300 p-3">Detetive policial</td>
               <td className="border border-gray-300 p-3">
                 Qualidade premium dos casos
               </td>
@@ -961,9 +955,7 @@ AND population < (
               <td className="border border-gray-300 p-3">
                 Tutorial educacional
               </td>
-              <td className="border border-gray-300 p-3">
-                Cobertura completa
-              </td>
+              <td className="border border-gray-300 p-3">Cobertura completa</td>
             </tr>
           </tbody>
         </table>
@@ -1016,16 +1008,10 @@ AND population < (
           O que fazer a seguir
         </h3>
         <ol className="space-y-2 text-amber-800">
-          <li>
-            1. Escolha um jogo desta lista (sério, só escolha um)
-          </li>
+          <li>1. Escolha um jogo desta lista (sério, só escolha um)</li>
           <li>2. Passe 30 minutos jogando ele hoje</li>
-          <li>
-            3. Se você travar, é normal - continue
-          </li>
-          <li>
-            4. Experimente outro jogo se o primeiro não te conquistar
-          </li>
+          <li>3. Se você travar, é normal - continue</li>
+          <li>4. Experimente outro jogo se o primeiro não te conquistar</li>
           <li>
             5. Quando terminar um, tente outro com uma abordagem diferente
           </li>
@@ -1033,10 +1019,10 @@ AND population < (
       </div>
 
       <p className="text-gray-700 leading-relaxed mb-6">
-        Não complique. O melhor jogo de SQL é aquele que você de fato vai
-        jogar. Escolha um, comece hoje e veja como aprender consultas de banco
-        de dados pode ser muito mais divertido. Se quiser começar agora pelo
-        jogo de detetive,{" "}
+        Não complique. O melhor jogo de SQL é aquele que você de fato vai jogar.
+        Escolha um, comece hoje e veja como aprender consultas de banco de dados
+        pode ser muito mais divertido. Se quiser começar agora pelo jogo de
+        detetive,{" "}
         <Link
           href="/pt-br"
           className="text-amber-700 hover:text-amber-900 underline"

@@ -51,15 +51,26 @@ export function clearLicenseCache(): void {
 }
 
 // When NEXT_PUBLIC_ENABLE_MONETIZATION is not set or "0", the entire app is free.
-const monetizationEnabled =
-  process.env.NEXT_PUBLIC_ENABLE_MONETIZATION === "1";
+const monetizationEnabled = process.env.NEXT_PUBLIC_ENABLE_MONETIZATION === "1";
 
-// Cases 1-2 (beginner) are free. Cases 3-6 (intermediate + advanced) require a license.
+// Cases 1-3 are always free. Cases 4-6 require a license when monetization is on.
+export const ALWAYS_FREE_CASE_IDS = new Set([
+  "case-001",
+  "case-002",
+  "case-003",
+]);
 const FREE_CATEGORIES = new Set(["beginner"]);
+
+export function isAlwaysFreeCase(caseData: Case): boolean {
+  return (
+    ALWAYS_FREE_CASE_IDS.has(caseData.id) ||
+    FREE_CATEGORIES.has(caseData.category)
+  );
+}
 
 export function isCaseFree(caseData: Case): boolean {
   if (!monetizationEnabled) return true;
-  return FREE_CATEGORIES.has(caseData.category);
+  return isAlwaysFreeCase(caseData);
 }
 
 export function isCaseLocked(caseData: Case, hasLicense: boolean): boolean {
@@ -70,7 +81,7 @@ export function isCaseLocked(caseData: Case, hasLicense: boolean): boolean {
 
 export function isCategoryLocked(
   categoryId: string,
-  hasLicense: boolean
+  hasLicense: boolean,
 ): boolean {
   if (!monetizationEnabled) return false;
   if (FREE_CATEGORIES.has(categoryId)) return false;

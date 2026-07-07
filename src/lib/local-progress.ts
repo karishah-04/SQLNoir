@@ -1,11 +1,12 @@
 import { getAllCases } from "@/lib/case-utils";
+import { isAlwaysFreeCase } from "@/lib/license";
 
 /**
  * Anonymous (logged-out) progress, persisted in localStorage.
  *
  * SECURITY / TRUST MODEL: localStorage is fully client-controlled, so we treat
  * it as untrusted input. We NEVER persist or read an XP number from storage -
- * only a set of solved case ids, filtered to KNOWN FREE (beginner) cases. XP is
+ * only a set of solved case ids, filtered to KNOWN ALWAYS-FREE cases. XP is
  * always RECOMPUTED from the canonical case data. This means a tampered
  * localStorage value can at most claim a free case was solved (which credits the
  * fixed free reward); it can never forge XP or unlock paid cases. The real
@@ -15,12 +16,12 @@ import { getAllCases } from "@/lib/case-utils";
 
 const STORAGE_KEY = "sqlnoir_local_progress";
 
-// Canonical FREE-case xp map, derived from real case data (beginner category),
-// e.g. { "case-001": 50, "case-002": 100 }. Derived - not a hardcoded duplicate.
+// Canonical FREE-case xp map, derived from real case data. Derived - not a
+// hardcoded duplicate.
 export const FREE_CASE_XP: Record<string, number> = (() => {
   const map: Record<string, number> = {};
   for (const c of getAllCases()) {
-    if (c.category === "beginner") {
+    if (isAlwaysFreeCase(c)) {
       map[c.id] = c.xpReward;
     }
   }
@@ -41,8 +42,8 @@ function readSolvedSet(): Set<string> {
     if (!Array.isArray(parsed)) return new Set();
     return new Set(
       parsed.filter(
-        (id): id is string => typeof id === "string" && id in FREE_CASE_XP
-      )
+        (id): id is string => typeof id === "string" && id in FREE_CASE_XP,
+      ),
     );
   } catch {
     // Corrupt JSON / unavailable storage - treat as empty.
@@ -60,8 +61,8 @@ function writeSolvedSet(set: Set<string>): void {
 }
 
 /**
- * Record a solved case in local progress. Only known FREE (beginner) case ids
- * are accepted; any other id is ignored. Deduped automatically.
+ * Record a solved case in local progress. Only known always-free case ids are
+ * accepted; any other id is ignored. Deduped automatically.
  */
 export function recordLocalSolve(caseId: string): void {
   if (!isBrowser()) return;
@@ -82,7 +83,7 @@ export function getLocalProgress(): { solvedCaseIds: string[]; xp: number } {
   const solvedCaseIds = [...readSolvedSet()];
   const xp = solvedCaseIds.reduce(
     (sum, id) => sum + (FREE_CASE_XP[id] ?? 0),
-    0
+    0,
   );
   return { solvedCaseIds, xp };
 }

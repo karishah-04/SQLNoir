@@ -24,7 +24,7 @@ const EMPTY_SOLUTION: Case["solution"] = {
 //
 // Overlay by PRESENCE in the map, NOT by isCaseFree(): when monetization is off
 // (the open-source / self-host default) isCaseFree() is true for every case, and
-// short-circuiting on it here would leave cases 003-006 with their empty
+// short-circuiting on it here would leave paid cases with their empty
 // placeholder solution -> permanently unsolvable on a fresh clone. This module is
 // server-only, so always overlaying is safe; with monetization ON the /cases list
 // and the detail page still strip paid solutions before they reach the client.
@@ -38,7 +38,7 @@ function withRealSolution(caseData: Case): Case {
 // solution before sending to the client for unlicensed users).
 export async function getLocalizedCase(
   caseData: Case,
-  locale: string
+  locale: string,
 ): Promise<Case> {
   const base = withRealSolution(caseData);
   if (locale === "en") return base;
@@ -56,7 +56,8 @@ export async function getLocalizedCase(
       solution: {
         ...base.solution,
         answer: t.solution?.answer ?? base.solution.answer,
-        successMessage: t.solution?.successMessage || base.solution.successMessage,
+        successMessage:
+          t.solution?.successMessage || base.solution.successMessage,
         explanation: t.solution?.explanation || base.solution.explanation,
       },
     };
@@ -69,7 +70,7 @@ export async function getLocalizedCase(
 // but FORCES paid-case solutions to empty, so the list payload never carries a
 // paid answer to the client. Free-case solutions are preserved (public).
 export async function getAllLocalizedCases(
-  locale: string
+  locale: string,
 ): Promise<Record<string, Case[]>> {
   const result: Record<string, Case[]> = {};
   for (const [category, caseList] of Object.entries(cases)) {
@@ -79,7 +80,7 @@ export async function getAllLocalizedCases(
         return isCaseFree(c)
           ? localized
           : { ...localized, solution: EMPTY_SOLUTION };
-      })
+      }),
     );
   }
   return result;

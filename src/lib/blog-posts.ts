@@ -42,10 +42,9 @@ export function getBlogPostsForLocale(locale: string): BlogPostMeta[] {
 export const blogPostsMeta: BlogPostMeta[] = [
   {
     slug: "curso-sql-gratis-investigando-crimes",
-    title:
-      "Curso de SQL Grátis em Português - Aprenda Investigando Crimes",
+    title: "Curso de SQL Grátis em Português - Aprenda Investigando Crimes",
     excerpt:
-      "Curso de SQL com casos reais de detetive. Comece de graça e sem cadastro, resolvendo mistérios do básico ao JOIN. Os dois primeiros casos são grátis.",
+      "Curso de SQL com casos reais de detetive. Comece de graça e sem cadastro, resolvendo mistérios do básico ao JOIN. Três casos iniciais são grátis.",
     date: "2026-05-14",
     readTime: "9 min de leitura",
     author: "Hristo Bogoev",
@@ -103,7 +102,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "sql-views",
-    title: "SQL Views Explained: What They Are, How They Work, and When to Use Them",
+    title:
+      "SQL Views Explained: What They Are, How They Work, and When to Use Them",
     excerpt:
       "Learn what SQL views are, how they work internally, and when to use them. Includes visual diagrams, practical examples, views vs tables comparison, and common mistakes.",
     date: "2026-03-05",
@@ -147,7 +147,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "clustered-vs-nonclustered-index",
-    title: "Clustered vs Nonclustered Index: When to Use Each (With Visual Examples)",
+    title:
+      "Clustered vs Nonclustered Index: When to Use Each (With Visual Examples)",
     excerpt:
       "Learn the key differences between clustered and nonclustered indexes in SQL. Visual diagrams, performance comparisons, and practical examples for better database design.",
     date: "2026-02-23",
@@ -246,7 +247,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "sql-for-marketing",
-    title: "SQL for Marketing: Essential Queries Every Marketing Professional Needs (2026)",
+    title:
+      "SQL for Marketing: Essential Queries Every Marketing Professional Needs (2026)",
     excerpt:
       "Master SQL for marketing analytics. Practical queries for campaign ROI, email performance, funnel analysis, and interview prep for marketing analyst roles.",
     date: "2026-02-02",
@@ -257,7 +259,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "sql-for-healthcare",
-    title: "SQL for Healthcare: Essential Queries Every Healthcare Professional Needs (2026)",
+    title:
+      "SQL for Healthcare: Essential Queries Every Healthcare Professional Needs (2026)",
     excerpt:
       "Master SQL for healthcare analytics. Practical queries for readmission tracking, ER wait times, patient outcomes, and interview prep for health data roles.",
     date: "2026-02-01",
@@ -268,7 +271,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "sql-for-finance",
-    title: "SQL for Finance: Essential Skills and Queries Every Financial Professional Needs (2026)",
+    title:
+      "SQL for Finance: Essential Skills and Queries Every Financial Professional Needs (2026)",
     excerpt:
       "Master SQL for financial analysis. Practical queries for revenue reporting, budget variance, customer segmentation, and interview prep for finance roles.",
     date: "2026-01-31",
@@ -279,7 +283,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   },
   {
     slug: "sql-for-data-engineers",
-    title: "SQL for Data Engineers: The Complete Guide to Building Data Pipelines (2026)",
+    title:
+      "SQL for Data Engineers: The Complete Guide to Building Data Pipelines (2026)",
     excerpt:
       "Master the 7 SQL skills every data engineer needs. From CTEs and window functions to SCD patterns, pipeline optimization, and interview prep.",
     date: "2026-01-30",

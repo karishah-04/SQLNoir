@@ -78,10 +78,10 @@ export default function GamesToLearnSqlContent() {
             SQL Noir
           </a>
         </strong>{" "}
-        is my take on making SQL actually fun to learn. I built it because I
-        was tired of boring tutorials. You play as a detective solving crimes
-        with SQL queries - each case has realistic databases with suspects,
-        evidence & witness interviews.
+        is my take on making SQL actually fun to learn. I built it because I was
+        tired of boring tutorials. You play as a detective solving crimes with
+        SQL queries - each case has realistic databases with suspects, evidence
+        & witness interviews.
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -119,11 +119,11 @@ AND i.alibi IS NOT NULL;`}
             actual schemas that make sense
           </li>
           <li>
-            • <strong>You know right away if you&apos;re wrong:</strong> No waiting
-            for a teacher to grade your work
+            • <strong>You know right away if you&apos;re wrong:</strong> No
+            waiting for a teacher to grade your work
           </li>
           <li>
-            • <strong>Free to start:</strong> The first two cases are free, no
+            • <strong>Free to start:</strong> Three starter cases are free, no
             signup needed - a one-time Detective License unlocks the rest
           </li>
           <li>
@@ -200,8 +200,8 @@ AND i.alibi IS NOT NULL;`}
         </strong>{" "}
         has a simple premise: you crash-land on an island and need SQL to
         survive. Want food? Query the database. Need a job? Better know how to
-        ORDER BY. It&apos;s cheesy but it works, especially if you&apos;re just starting
-        out.
+        ORDER BY. It&apos;s cheesy but it works, especially if you&apos;re just
+        starting out.
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -216,8 +216,7 @@ ORDER BY gold DESC
 LIMIT 1;`}
         </pre>
         <p className="text-gray-600 text-sm mt-2">
-          Find the wealthiest baker on the island to secure employment and
-          gold.
+          Find the wealthiest baker on the island to secure employment and gold.
         </p>
       </div>
 
@@ -229,8 +228,8 @@ LIMIT 1;`}
             drives learning forward
           </li>
           <li>
-            • <strong>Progressive Challenges:</strong> Tasks become more
-            complex as you advance
+            • <strong>Progressive Challenges:</strong> Tasks become more complex
+            as you advance
           </li>
           <li>
             • <strong>Multilingual Support:</strong> Available in English and
@@ -257,9 +256,7 @@ LIMIT 1;`}
             </ul>
           </div>
           <div>
-            <h5 className="font-bold text-blue-800 mb-2">
-              ⚠️ Considerations:
-            </h5>
+            <h5 className="font-bold text-blue-800 mb-2">⚠️ Considerations:</h5>
             <ul className="text-sm text-gray-700 space-y-1">
               <li>• Interface can feel dated</li>
               <li>• Limited advanced SQL concepts</li>
@@ -317,8 +314,9 @@ LIMIT 1;`}
         </strong>{" "}
         is the OG SQL game that started it all. Northwestern University made
         this and it&apos;s just one case - solve a murder in SQL City. Simple
-        concept, but it&apos;s really well done and teaches you JOINs better than
-        any tutorial I&apos;ve seen. P.S. SQL Noir was inspired by this game.
+        concept, but it&apos;s really well done and teaches you JOINs better
+        than any tutorial I&apos;ve seen. P.S. SQL Noir was inspired by this
+        game.
       </p>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-6">
@@ -332,8 +330,8 @@ JOIN drivers_license dl ON p.license_id = dl.id
 WHERE dl.plate_number LIKE '%H42W%';`}
         </pre>
         <p className="text-gray-600 text-sm mt-2">
-          Track down suspects by matching partial license plate information
-          with driver records.
+          Track down suspects by matching partial license plate information with
+          driver records.
         </p>
       </div>
 
@@ -349,16 +347,16 @@ WHERE dl.plate_number LIKE '%H42W%';`}
             reports, witness interviews, and city records
           </li>
           <li>
-            • <strong>Educational Design:</strong> Backed by academic
-            expertise in learning design
+            • <strong>Educational Design:</strong> Backed by academic expertise
+            in learning design
           </li>
           <li>
-            • <strong>Self-Paced Learning:</strong> No time pressure, explore
-            at your own speed
+            • <strong>Self-Paced Learning:</strong> No time pressure, explore at
+            your own speed
           </li>
           <li>
-            • <strong>Community Solutions:</strong> Share approaches with
-            other detectives
+            • <strong>Community Solutions:</strong> Share approaches with other
+            detectives
           </li>
         </ul>
 
@@ -385,9 +383,7 @@ WHERE dl.plate_number LIKE '%H42W%';`}
             </ul>
           </div>
           <div>
-            <h5 className="font-bold text-red-800 mb-2">
-              ⚠️ Considerations:
-            </h5>
+            <h5 className="font-bold text-red-800 mb-2">⚠️ Considerations:</h5>
             <ul className="text-sm text-gray-700 space-y-1">
               <li>• Only one case to solve</li>
               <li>• Can be completed quickly</li>
@@ -448,8 +444,8 @@ WHERE dl.plate_number LIKE '%H42W%';`}
         real-world police department. You will be briefed on different crimes
         and you will have to write SQL queries to solve them. The UI is a bit
         more mobile leaning, but it&apos;s still a great way to learn SQL. You
-        don&apos;t have a traditional SQL editor but rather a set of buttons that
-        give you different keyword options to complete the query.
+        don&apos;t have a traditional SQL editor but rather a set of buttons
+        that give you different keyword options to complete the query.
       </p>
 
       <div className="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
@@ -467,8 +463,8 @@ WHERE dl.plate_number LIKE '%H42W%';`}
             giving away solutions
           </li>
           <li>
-            • <strong>Free Trial Cases:</strong> Try before you buy with
-            sample cases
+            • <strong>Free Trial Cases:</strong> Try before you buy with sample
+            cases
           </li>
         </ul>
 
@@ -577,8 +573,8 @@ AND population < (
             covering all SQL concepts
           </li>
           <li>
-            • <strong>Real Datasets:</strong> Work with world statistics,
-            Nobel prizes, and more
+            • <strong>Real Datasets:</strong> Work with world statistics, Nobel
+            prizes, and more
           </li>
           <li>
             • <strong>Progressive Difficulty:</strong> From basic SELECT
@@ -593,8 +589,7 @@ AND population < (
             </a>
           </li>
           <li>
-            • <strong>Assessment Tools:</strong> Built-in quizzes and
-            challenges
+            • <strong>Assessment Tools:</strong> Built-in quizzes and challenges
           </li>
           <li>
             • <strong>No Registration Required:</strong> Start learning
@@ -873,12 +868,8 @@ AND population < (
               <td className="border border-gray-300 p-3 text-green-600">
                 Freemium
               </td>
-              <td className="border border-gray-300 p-3">
-                Beginner-Advanced
-              </td>
-              <td className="border border-gray-300 p-3">
-                Detective Mystery
-              </td>
+              <td className="border border-gray-300 p-3">Beginner-Advanced</td>
+              <td className="border border-gray-300 p-3">Detective Mystery</td>
               <td className="border border-gray-300 p-3">
                 Immersive storytelling
               </td>
@@ -891,9 +882,7 @@ AND population < (
                 Free
               </td>
               <td className="border border-gray-300 p-3">Beginner</td>
-              <td className="border border-gray-300 p-3">
-                Adventure Survival
-              </td>
+              <td className="border border-gray-300 p-3">Adventure Survival</td>
               <td className="border border-gray-300 p-3">
                 Beginner-friendly progression
               </td>
@@ -997,15 +986,13 @@ AND population < (
           <li>2. Spend 30 minutes playing it today</li>
           <li>3. If you get stuck, that&apos;s normal - keep going</li>
           <li>4. Try a different game if the first one doesn&apos;t click</li>
-          <li>
-            5. Once you finish one, try another with a different approach
-          </li>
+          <li>5. Once you finish one, try another with a different approach</li>
         </ol>
       </div>
 
       <p className="text-gray-700 leading-relaxed">
-        Don&apos;t overthink this. The best SQL game is the one you&apos;ll actually
-        play. Pick one, start today, and see how much more fun learning
+        Don&apos;t overthink this. The best SQL game is the one you&apos;ll
+        actually play. Pick one, start today, and see how much more fun learning
         database queries can be.
       </p>
     </div>

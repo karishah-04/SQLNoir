@@ -1,4 +1,5 @@
 import { getAllCases } from "@/lib/case-utils";
+import { isAlwaysFreeCase } from "@/lib/license";
 
 /**
  * Pure, DB-free logic for migrating anonymous local progress onto an account.
@@ -8,15 +9,15 @@ import { getAllCases } from "@/lib/case-utils";
  * build. Keeping these helpers here also makes them unit-testable without a DB.
  *
  * SECURITY: the server is the sole source of truth. Callers send case ids only;
- * xp is recomputed here from canonical case data, and only KNOWN FREE (beginner)
- * cases are ever credited - paid cases (003-006) are filtered out.
+ * xp is recomputed here from canonical case data, and only KNOWN ALWAYS-FREE
+ * cases are ever credited - paid cases (004-006) are filtered out.
  */
 
-/** FREE (beginner) case ids → canonical xpReward (server source of truth). */
+/** Always-free case ids -> canonical xpReward (server source of truth). */
 export function getFreeCaseXpMap(): Record<string, number> {
   const map: Record<string, number> = {};
   for (const c of getAllCases()) {
-    if (c.category === "beginner") {
+    if (isAlwaysFreeCase(c)) {
       map[c.id] = c.xpReward;
     }
   }
@@ -31,7 +32,7 @@ export function getFreeCaseXpMap(): Record<string, number> {
 export function computeMigration(
   freeMap: Record<string, number>,
   incoming: string[],
-  existing: string[]
+  existing: string[],
 ): { newCases: string[]; addedXp: number } {
   const existingSet = new Set(existing);
   const seen = new Set<string>();

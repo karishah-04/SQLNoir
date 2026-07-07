@@ -70,7 +70,7 @@
     "faqAccountQ": "Do I need an account to play?",
     "faqAccountA": "You can open and solve cases without creating an account. Sign in to track XP, progress, and solved cases across devices.",
     "faqAccessQ": "How does access work?",
-    "faqAccessA": "The beginner cases are free to play, no account needed. The intermediate and advanced cases unlock with a one-time Detective License, a single lifetime purchase rather than a subscription. XP tracks your progress as you solve cases.",
+    "faqAccessA": "Three starter cases are free to play, no account needed. The remaining cases unlock with a one-time Detective License, a single lifetime purchase rather than a subscription. XP tracks your progress as you solve cases.",
     "faqSqlQ": "What SQL do I need to know?",
     "faqSqlA": "Beginners can start with simple SELECTs. Intermediate and advanced cases introduce joins, grouping, filters, and subqueries as you progress.",
     "faqInterviewQ": "Will this help with interviews?",
@@ -154,7 +154,7 @@
     "explanation": "Explanation",
     "saveXpNote": "Your XP is saved on this device. Sign in anytime to keep it across devices.",
     "unlockRemainingCases": "Unlock the remaining cases",
-    "unlockRemainingDesc": "You've solved both free cases. Get a Detective License to crack every intermediate and advanced investigation.",
+    "unlockRemainingDesc": "You've solved all free cases. Get a Detective License to crack every remaining investigation.",
     "fullArchiveTitle": "Ready for the full case file?",
     "fullArchiveDesc": "Unlock every intermediate and advanced investigation with one Detective License.",
     "unlockAllCasesCta": "Unlock all cases",
@@ -439,10 +439,10 @@
       "overviewBody": "SQLNoir is an interactive SQL learning platform where you solve detective cases using SQL queries. By using SQLNoir, you agree to these terms. SQLNoir is provided \"as is\" without warranty of any kind.",
       "accountsTitle": "Accounts and Access",
       "accountsIntro": "You can use SQLNoir without creating an account. Signing in with Google OAuth allows you to track progress across devices.",
-      "accountsFreeTier": "<strong>Free access:</strong> The first two cases are free to play - no account or payment required. The remaining cases are unlocked with a one-time Detective License.",
-      "accountsLicense": "<strong>Detective License:</strong> The first two cases are free. Unlocking the remaining cases requires a one-time Detective License - a single lifetime payment, not a subscription. The license never expires and includes future paid cases at no extra cost.",
+      "accountsFreeTier": "<strong>Free access:</strong> Three starter cases are free to play - no account or payment required. The remaining cases are unlocked with a one-time Detective License.",
+      "accountsLicense": "<strong>Detective License:</strong> Three starter cases are free. Unlocking the remaining cases requires a one-time Detective License - a single lifetime payment, not a subscription. The license never expires and includes future paid cases at no extra cost.",
       "paymentsTitle": "Payments",
-      "paymentsBody": "The first two cases are free to play. Unlocking the remaining cases requires a one-time Detective License, a single lifetime payment with no recurring or monthly charges. Payments are processed securely by <stripe>Stripe</stripe>. If you experience any issues, please contact us and we'll do our best to help.",
+      "paymentsBody": "Three starter cases are free to play. Unlocking the remaining cases requires a one-time Detective License, a single lifetime payment with no recurring or monthly charges. Payments are processed securely by <stripe>Stripe</stripe>. If you experience any issues, please contact us and we'll do our best to help.",
       "refundTitle": "Refunds",
       "refundBody": "We offer a 14-day, no-questions-asked refund, and we'll help any unhappy customer even after that window. To request a refund, email <email>support@sqlnoir.com</email>.",
       "ugcTitle": "User-Generated Content",
@@ -512,7 +512,7 @@
       },
       "q5": {
         "question": "Which cases are free?",
-        "answer": "The first two cases are free to play. The remaining cases require a Detective License."
+        "answer": "Three starter cases are free to play. The remaining cases require a Detective License."
       },
       "q6": {
         "question": "Can I play offline?",
